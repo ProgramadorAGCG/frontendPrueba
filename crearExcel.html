@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <title>Inicio</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="crearExcel">
+        <form action="#" class="formulario" method="POST" enctype="multipart/form-data">
+            <div>Ingresa un documento excel</div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="archivoExcel">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <div>
+                <a class="btn btn-danger" id="btnEnviar" href="#">Insertar</a>
+            </div>
+        </form>
+        <div class="tablaResponsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Creditos</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaExcel">
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
