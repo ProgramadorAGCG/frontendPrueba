@@ -17,7 +17,7 @@ window.addEventListener('load', (e) => {
 function cursoSelect() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:5000/curso/select/",
+        url: "https://pruebadeproyecto.herokuapp.com/curso/select/",
         dataType: "json",
         success: function (data) {
             var tabla = '';
@@ -41,7 +41,7 @@ function cursoGet(id) { /*27*/
     $.ajax({
         type: "GET",
         /** http://localhost:5000/curso/get/27 */
-        url: "http://localhost:5000/curso/get/" + id + "/",
+        url: "https://pruebadeproyecto.herokuapp.com/curso/get/" + id + "/",
         dataType: "json",
         success: function (data) {
             $('#txtId').val(data["resultado"]["id"]);
@@ -55,7 +55,7 @@ function cursoGet(id) { /*27*/
 function cursoEliminar(id) {
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:5000/curso/delete/" + id + "/",
+        url: "https://pruebadeproyecto.herokuapp.com/curso/delete/" + id + "/",
         dataType: "json",
         success: function (data) {
             cursoSelect();
@@ -81,7 +81,7 @@ function cursoInsert() {
     registros.append("txtCreditos", $('#txtCreditos').val());
     $.ajax({
         type: "POST",
-        url: "http://localhost:5000/curso/create/",
+        url: "https://pruebadeproyecto.herokuapp.com/curso/create/",
         data: registros,
         dataType: 'json',
         contentType: false,
@@ -100,7 +100,7 @@ function cursoUpdate() {
     registros.append("txtCreditos", $('#txtCreditos').val());
     $.ajax({
         type: "PUT",
-        url: "http://localhost:5000/curso/update/" + registros.get("txtId") + "/",
+        url: "https://pruebadeproyecto.herokuapp.com/curso/update/" + registros.get("txtId") + "/",
         data: registros,
         dataType: 'json',
         contentType: false,
@@ -121,7 +121,7 @@ function archivoCargar() {
         registros.append("archivoExcel", $('#archivoExcel')[0].files[0]);
         $.ajax({
             type: "POST",
-            url: "http://localhost:5000/curso/cargarexcel/",
+            url: "https://pruebadeproyecto.herokuapp.com/curso/cargarexcel/",
             data: registros,
             dataType: 'json',
             contentType: false,
@@ -155,7 +155,7 @@ function insertarDatosExcel() {
     }
     $.ajax({
         type: "POST",
-        url: "http://localhost:5000/curso/crear/",
+        url: "https://pruebadeproyecto.herokuapp.com/curso/crear/",
         data: JSON.stringify(arreglo),
         dataType: 'json',
         contentType: 'application/json',
