@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styleadmin.css">
+</head>
+
+<body>
+    <div class="modal fade" id="cuenta">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        Cuenta Administrador
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="hidden" name="codCuenta" id="codCuenta"
+                        value="<?= $administrador->getCodTrabajador() ?>">
+                    <div>Correo: administrador@gmail.com
+                    </div>
+                    <div>Nombre: Administrador
+                    </div>
+                    <div>DNI: 12345678
+                    </div>
+                    <div>Teléfono: 123456789
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <div class="propiedades">
+                        <button type="button" class="btn btn-danger btnCerrarSesion">
+                            <a style="color: white;" href="../controller/CCTrabajador.php?accion=Close">
+                                Cerrar
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modalCrear" id="crearOferta">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        Registrar Platillos
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <div>Ingresa un documento excel</div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                        <div>
+                            <button class="btn btn-warning">Mostrar</button>
+                            <button class="btn btn-danger">Insertar</button>
+                        </div>
+                    </form>
+                    <div class="tablaResponsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Categoria</th>
+                                    <th>Precio</th>
+                                    <th>Descripcion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Hamburguesa</td>
+                                    <td>Pollo</td>
+                                    <td>20.00</td>
+                                    <td>Este pollo está a un precio muy razonable</td>
+                                </tr>
+                                <tr>
+                                    <td>Hamburguesa</td>
+                                    <td>Pollo</td>
+                                    <td>20.00</td>
+                                    <td>Este pollo está a un precio muy razonable</td>
+                                </tr>
+                                <tr>
+                                    <td>Hamburguesa</td>
+                                    <td>Pollo</td>
+                                    <td>20.00</td>
+                                    <td>Este pollo está a un precio muy razonable</td>
+                                </tr>
+                                <tr>
+                                    <td>Hamburguesa</td>
+                                    <td>Pollo</td>
+                                    <td>20.00</td>
+                                    <td>Este pollo está a un precio muy razonable</td>
+                                </tr>
+                                <tr>
+                                    <td>Hamburguesa</td>
+                                    <td>Pollo</td>
+                                    <td>20.00</td>
+                                    <td>Este pollo está a un precio muy razonable</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modalCrud" id="Categorias">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        Categorias
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="tablaResponsive">
+                        <div class="form-group">
+                            <label for="usr">Categoria:</label>
+                            <input type="text" class="form-control" id="usr">
+                            <button type="button" class="btn btn-success">Insertar</button>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Categoria</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Promociones</td>
+                                    <td class="grupoBotones">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">
+                                                <i class='bx bx-up-arrow-alt'></i>
+                                            </button>
+                                            <button class="btn btn-danger">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Pollos a la brasa</td>
+                                    <td class="grupoBotones">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">
+                                                <i class='bx bx-up-arrow-alt'></i>
+                                            </button>
+                                            <button class="btn btn-danger">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Carnes a la parrilla</td>
+                                    <td class="grupoBotones">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">
+                                                <i class='bx bx-up-arrow-alt'></i>
+                                            </button>
+                                            <button class="btn btn-danger">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Aves a la parrilla</td>
+                                    <td class="grupoBotones">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">
+                                                <i class='bx bx-up-arrow-alt'></i>
+                                            </button>
+                                            <button class="btn btn-danger">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Comidas criollas</td>
+                                    <td class="grupoBotones">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">
+                                                <i class='bx bx-up-arrow-alt'></i>
+                                            </button>
+                                            <button class="btn btn-danger">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Ensaladas</td>
+                                    <td class="grupoBotones">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">
+                                                <i class='bx bx-up-arrow-alt'></i>
+                                            </button>
+                                            <button class="btn btn-danger">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>Piqueos</td>
+                                    <td class="grupoBotones">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">
+                                                <i class='bx bx-up-arrow-alt'></i>
+                                            </button>
+                                            <button class="btn btn-danger">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>Bebidas frías</td>
+                                    <td class="grupoBotones">
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">
+                                                <i class='bx bx-up-arrow-alt'></i>
+                                            </button>
+                                            <button class="btn btn-danger">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="nav_barraLateral">
+            <div id="sidenav-header">
+                <div id="profile-picture">
+                    <img src="../img/admin.png" />
+                </div>
+                <div class="btn-group" style="width: 150px">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="modal"
+                        data-target="#cuenta">
+                        <span class="etiquetaPerfil">Perfil</span>
+                        <span class="caret"></span>
+                    </button>
+                </div>
+            </div>
+            <h1>PANEL DE ADMINISTRACIÓN Pacos' Bill</h1>
+            <div id="btnMenu">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+        
+    </header>
+    <nav id="sidenav">
+        <div id="menu">
+            <ul id="main-nav" class="menus">
+                <li>
+                    <a href="pedidos.html">
+                        <i class="fa fa-utensils"></i>Pedidos
+                    </a>
+                </li>
+                <li>
+                    <a href="carta.html">
+                        <i class="fa fa-utensils"></i>Carta
+                    </a>
+                </li>
+                <li>
+                    <a href="ofertas.html">
+                        <i class="fa fa-utensils"></i>Ofertas
+                    </a>
+                </li>
+                <li>
+                    <a href="trabajadores.html">
+                        <i class="fa fa-user-tie"></i>Trabajadores
+                    </a>
+                </li>
+                <li>
+                    <a href="encuesta.html">
+                        <i class="fa fa-check-square-o"></i>Encuestas
+                    </a>
+                </li>
+                <li>
+                    <a href="moduloEncuesta.html">
+                        <i class="fa fa-check-square-o"></i>Modulo de
+                        encuestas
+                    </a>
+                </li>
+                <li>
+                    <a href="cuentasAdmin.html">
+                        <i class="fa fa-lock-open"></i>Cuentas Admin
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="mainOfertas">
+        <div class="primario">
+            <h3>SECCION PLATILLOS</h3>
+            <div class="adicional">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Nombre</span>
+                    </div>
+                    <input style="z-index: 0;" type="text" class="form-control" placeholder="Buscar por nombre">
+                </div>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#crearOferta">Insertar</a>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Categorias">Categorias</a>
+                <select name="cars" class="custom-select">
+                    <option selected value="Todos">Todos</option>
+                    <option value="Promociones">Promociones</option>
+                    <option value="Pollos a la brasa">Pollos a la brasa</option>
+                    <option value="Carnes a la parrilla">Carnes a la parrilla</option>
+                    <option value="Aves a la parrilla">Aves a la parrilla</option>
+                    <option value="Comidas criollas">Comidas criollas</option>
+                    <option value="Ensaladas">Ensaladas</option>
+                    <option value="Piqueos">Piqueos</option>
+                    <option value="Bebidas refrescantes">Bebidas refrescantes</option>
+                </select>
+            </div>
+            <div class="ofertas-content">
+                <div class="cardOfertas efectoCarta">
+                    <div class="front">
+                        <div class="img">
+                            <img src="../img/comidas/pollo a la brasa.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <!--El campo nombre del platillo debe tener como mínimo 50 caracteres-->
+                            <h3>Arroz con pollo con papas fritas, ensalada y mixto</h3>
+                            <div class="botones">
+                                <button type="button" class="btn btn-warning">
+                                    <i class='bx bx-info-circle'></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam fuga fugit,
+                            rerum vero aliquid? Quaerat laboriosam optio, sed facere facilis voluptates fugit officia
+                            quia labore cum pariatur non alias.</p>
+                    </div>
+                </div>
+                <div class="cardOfertas">
+                    <div class="front">
+                        <div class="img">
+                            <img src="../img/comidas/lomo saltado.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h3>Brhadaranyakopanishadvivekachudamani Erreh Muñoz Castillo</h3>
+                            <div class="botones">
+                                <button type="button" class="btn btn-warning">
+                                    <i class='bx bx-info-circle'></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam fuga fugit,
+                            rerum vero aliquid? Quaerat laboriosam optio, sed facere facilis voluptates fugit officia
+                            quia labore cum pariatur non alias.</p>
+                    </div>
+                </div>
+                <div class="cardOfertas">
+                    <div class="front">
+                        <div class="img">
+                            <img src="../img/comidas/Hamburguesa.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h3>Brhadaranyakopanishadvivekachudamani Erreh Muñoz Castillo</h3>
+                            <div class="botones">
+                                <button type="button" class="btn btn-warning">
+                                    <i class='bx bx-info-circle'></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam fuga fugit,
+                            rerum vero aliquid? Quaerat laboriosam optio, sed facere facilis voluptates fugit officia
+                            quia labore cum pariatur non alias.</p>
+                    </div>
+                </div>
+                <div class="cardOfertas">
+                    <div class="front">
+                        <div class="img">
+                            <img src="../img/comidas/pollo a la brasa.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h3>Brhadaranyakopanishadvivekachudamani Erreh Muñoz Castillo</h3>
+                            <div class="botones">
+                                <button type="button" class="btn btn-warning">
+                                    <i class='bx bx-info-circle'></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam fuga fugit,
+                            rerum vero aliquid? Quaerat laboriosam optio, sed facere facilis voluptates fugit officia
+                            quia labore cum pariatur non alias.</p>
+                    </div>
+                </div>
+                <div class="cardOfertas">
+                    <div class="front">
+                        <div class="img">
+                            <img src="../img/comidas/lomo saltado.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h3>Brhadaranyakopanishadvivekachudamani Erreh Muñoz Castillo</h3>
+                            <div class="botones">
+                                <button type="button" class="btn btn-warning">
+                                    <i class='bx bx-info-circle'></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam fuga fugit,
+                            rerum vero aliquid? Quaerat laboriosam optio, sed facere facilis voluptates fugit officia
+                            quia labore cum pariatur non alias.</p>
+                    </div>
+                </div>
+                <div class="cardOfertas">
+                    <div class="front">
+                        <div class="img">
+                            <img src="../img/comidas/Hamburguesa.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h3>Brhadaranyakopanishadvivekachudamani Erreh Muñoz Castillo</h3>
+                            <div class="botones">
+                                <button type="button" class="btn btn-warning">
+                                    <i class='bx bx-info-circle'></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam fuga fugit,
+                            rerum vero aliquid? Quaerat laboriosam optio, sed facere facilis voluptates fugit officia
+                            quia labore cum pariatur non alias.</p>
+                    </div>
+                </div>
+                <div class="cardOfertas">
+                    <div class="front">
+                        <div class="img">
+                            <img src="../img/comidas/pollo a la brasa.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h3>Brhadaranyakopanishadvivekachudamani Erreh Muñoz Castillo</h3>
+                            <div class="botones">
+                                <button type="button" class="btn btn-warning">
+                                    <i class='bx bx-info-circle'></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam fuga fugit,
+                            rerum vero aliquid? Quaerat laboriosam optio, sed facere facilis voluptates fugit officia
+                            quia labore cum pariatur non alias.</p>
+                    </div>
+                </div>
+                <div class="cardOfertas">
+                    <div class="front">
+                        <div class="img">
+                            <img src="../img/comidas/lomo saltado.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h3>Brhadaranyakopanishadvivekachudamani Erreh Muñoz Castillo</h3>
+                            <div class="botones">
+                                <button type="button" class="btn btn-warning">
+                                    <i class='bx bx-info-circle'></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam fuga fugit,
+                            rerum vero aliquid? Quaerat laboriosam optio, sed facere facilis voluptates fugit officia
+                            quia labore cum pariatur non alias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="secundario">
+            <ul>
+                <li><a href="#" class="btn opcionesOfertas">Promociones</a></li>
+                <li><a href="#" class="btn opcionesOfertas">Pollos a la brasa</a></li>
+                <li><a href="#" class="btn opcionesOfertas">Carnes a la parrilla</a></li>
+                <li><a href="#" class="btn opcionesOfertas">Aves a la parrilla</a></li>
+                <li><a href="#" class="btn opcionesOfertas">Comidas criollas</a></li>
+                <li><a href="#" class="btn opcionesOfertas">Ensaladas</a></li>
+                <li><a href="#" class="btn opcionesOfertas">Piqueos</a></li>
+                <li><a href="#" class="btn opcionesOfertas">Bebidas frias</a></li>
+            </ul>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/f78c574cc2.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/efectoAnimacion.js"></script>
+</body>
+
+</html>

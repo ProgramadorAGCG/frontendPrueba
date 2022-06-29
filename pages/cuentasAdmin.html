@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styleadmin.css">
+</head>
+
+<body>
+    <div class="modal fade" id="cuenta">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        Cuenta Administrador
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="hidden" name="codCuenta" id="codCuenta"
+                        value="<?= $administrador->getCodTrabajador() ?>">
+                    <div>Correo: administrador@gmail.com
+                    </div>
+                    <div>Nombre: Administrador
+                    </div>
+                    <div>DNI: 12345678
+                    </div>
+                    <div>Teléfono: 123456789
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <div class="propiedades">
+                        <button type="button" class="btn btn-danger btnCerrarSesion">
+                            <a style="color: white;" href="../controller/CCTrabajador.php?accion=Close">
+                                <i class="bi bi-box-arrow-left"></i>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modalCrear" id="crearTrabajadores">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        Registrar Administrador
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="usr">Nombre:</label>
+                            <input type="text" class="form-control" id="usr">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Contraseña:</label>
+                            <input type="password" class="form-control" id="pwd">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Confirmar contraseña:</label>
+                            <input type="password" class="form-control" id="pwd">
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Imagen de perfil</label>
+                        </div>
+                        <button type="button" class="btn btn-success">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="nav_barraLateral">
+            <div id="sidenav-header">
+                <div id="profile-picture">
+                    <img src="../img/admin.png" />
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="modal"
+                        data-target="#cuenta">
+                        <span class="etiquetaPerfil">Perfil</span>
+                        <span class="caret"></span>
+                    </button>
+                </div>
+            </div>
+            <h1>PANEL DE ADMINISTRACIÓN Pacos' Bill</h1>
+            <div id="btnMenu">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+    </header>
+    <nav id="sidenav">
+        <div id="menu">
+            <ul id="main-nav" class="menus">
+                <li>
+                    <a href="pedidos.html">
+                        <i class="fa fa-utensils"></i>Pedidos
+                    </a>
+                </li>
+                <li>
+                    <a href="carta.html">
+                        <i class="fa fa-utensils"></i>Carta
+                    </a>
+                </li>
+                <li>
+                    <a href="ofertas.html">
+                        <i class="fa fa-utensils"></i>Ofertas
+                    </a>
+                </li>
+                <li>
+                    <a href="trabajadores.html">
+                        <i class="fa fa-user-tie"></i>Trabajadores
+                    </a>
+                </li>
+                <li>
+                    <a href="encuesta.html">
+                        <i class="fa fa-check-square-o"></i>Encuestas
+                    </a>
+                </li>
+                <li>
+                    <a href="moduloEncuesta.html">
+                        <i class="fa fa-check-square-o"></i>Modulo de
+                        encuestas
+                    </a>
+                </li>
+                <li>
+                    <a href="cuentasAdmin.html">
+                        <i class="fa fa-lock-open"></i>Cuentas Admin
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="mainTrabajadores">
+        <h3>SECCION TRABAJADOR</h3>
+        <div class="adicional">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Nombre</span>
+                </div>
+                <input type="text" class="form-control" id="inputTrabajador" placeholder="Buscar por nombre"
+                    style="z-index: 0;">
+            </div>
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#crearTrabajadores">Insertar</a>
+        </div>
+        <div class="tabla table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Cant. Encuestas</th>
+                        <th>Cargo</th>
+                        <th>Perfil</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaTrabajadores">
+                    <tr>
+                        <td>1</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                        <td>10</td>
+                        <td>Mesero</td>
+                        <td>
+                            <img src="../img/trabajadores/Goku.jpg" alt="">
+                        </td>
+                        <td class="grupoBotones">
+                            <div class="btn-group">
+                                <button class="btn btn-primary">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                        <td>100</td>
+                        <td>Cocinero</td>
+                        <td>
+                            <img src="../img/trabajadores/deku.jpg" alt="">
+                        </td>
+                        <td class="grupoBotones">
+                            <div class="btn-group">
+                                <button class="btn btn-primary">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                        <td>50</td>
+                        <td>Cocinero</td>
+                        <td>
+                            <img src="../img/trabajadores/naruto.jpg" alt="">
+                        </td>
+                        <td class="grupoBotones">
+                            <div class="btn-group">
+                                <button class="btn btn-primary">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                        <td>10</td>
+                        <td>Recepcionista</td>
+                        <td>
+                            <img src="../img/trabajadores/kirito.jpg" alt="">
+                        </td>
+                        <td class="grupoBotones">
+                            <div class="btn-group">
+                                <button class="btn btn-primary">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                        <td>100</td>
+                        <td>Mesero</td>
+                        <td>
+                            <img src="../img/trabajadores/subaru.jpg" alt="">
+                        </td>
+                        <td class="grupoBotones">
+                            <div class="btn-group">
+                                <button class="btn btn-primary">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                        <td>50</td>
+                        <td>Cocinero</td>
+                        <td>
+                            <img src="../img/trabajadores/meliodas.jpg" alt="">
+                        </td>
+                        <td class="grupoBotones">
+                            <div class="btn-group">
+                                <button class="btn btn-primary">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                        <td>10</td>
+                        <td>Cocinero</td>
+                        <td>
+                            <img src="../img/trabajadores/saitama.jpg" alt="">
+                        </td>
+                        <td class="grupoBotones">
+                            <div class="btn-group">
+                                <button class="btn btn-primary">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                        <td>100</td>
+                        <td>Mesero</td>
+                        <td>
+                            <img src="../img/trabajadores/ikki.jpg" alt="">
+                        </td>
+                        <td class="grupoBotones">
+                            <div class="btn-group">
+                                <button class="btn btn-primary">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                        <td>50</td>
+                        <td>Recepcionista</td>
+                        <td>
+                            <img src="../img/trabajadores/nasa.jpg" alt="">
+                        </td>
+                        <td class="grupoBotones">
+                            <div class="btn-group">
+                                <button class="btn btn-primary">
+                                    <i class='bx bx-up-arrow-alt'></i>
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/f78c574cc2.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/efectoAnimacion.js"></script>
+</body>
+
+</html>
